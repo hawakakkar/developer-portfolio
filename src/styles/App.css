@@ -335,8 +335,7 @@ html {
 }
 
 /* Text */
-
-.light h1,
+t .light h1,
 .light Header p {
   color: #934250;
 }

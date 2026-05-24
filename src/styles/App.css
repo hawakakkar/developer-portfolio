@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #222;
+  background: #fdfdfd;
   color: white;
 }
 
@@ -320,6 +320,59 @@ html {
   font-weight: bold;
 }
 
+/*The light Mode*/
+
+.light {
+  background: #f5f5f5;
+  color: #111;
+  min-height: 100vh;
+}
+
+/* Navbar */
+
+.light .navbar {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Text */
+
+.light h1,
+.light Header p {
+  color: #934250;
+}
+.light h2,
+.light h3,
+.light li,
+.light p,
+.light a {
+  color: #111;
+}
+
+/* Project cards */
+
+.light .project-card {
+  background: white;
+}
+
+.light .project-card p {
+  color: #444;
+}
+
+/* Footer */
+
+.light .footer {
+  background: #e5e5e5;
+}
+
+/* Keep pink buttons */
+
+.light .nav-links a,
+.light .badge,
+.light .featured,
+.light .theme-btn,
+.light button {
+  color: white;
+}
 /* The Dark Mode */
 
 .dark {

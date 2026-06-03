@@ -13,7 +13,7 @@ function Header({ message }) {
       }}
     >
       <div>
-        <h1>Hi, I'm Bibi Hawa Abdul Shukoor</h1>
+        <h1 className="headiing">Hi, I'm Bibi Hawa Abdul Shukoor</h1>
 
         <p>{message}</p>
       </div>

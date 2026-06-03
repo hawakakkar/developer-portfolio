@@ -144,7 +144,7 @@ html {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
-  color: #934250;
+  color: #000;
 }
 
 .about p {
@@ -195,8 +195,7 @@ html {
   font-size: 3rem;
 
   margin-bottom: 3rem;
-
-  color: #934250;
+  color: #000;
 }
 
 .project-grid {
@@ -314,10 +313,276 @@ html {
 
 .socials a {
   text-decoration: none;
-
   color: #934250;
-
   font-weight: bold;
+}
+
+/* PART 2 STYLES  */
+
+/* CONTACT FORM */
+.contact {
+  padding: 5rem 10%;
+  background: #dac5c5;
+  border-radius: 12px;
+  margin: 3rem 10%;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.contact textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.contact button {
+  background: #934250;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact button:hover {
+  background: #5a1421;
+}
+
+/* ERROR TEXT */
+.error {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+}
+
+/* SUCCESS MESSAGE */
+.success {
+  background: #2ecc71;
+  color: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* LIVE PREVIEW BOX */
+.preview {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fbfafa;
+  border-radius: 12px;
+}
+
+.preview h3 {
+  color: #934250;
+  margin-bottom: 1rem;
+}
+
+/* FEEDBACK WALL */
+.feedback-wall {
+  padding: 5rem 10%;
+}
+
+/* Feedback Sorting Buttons */
+
+.feedback-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.feedback-buttons button {
+  background: #934250;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.feedback-buttons button:hover {
+  background: #5a1421;
+  transform: translateY(-2px);
+}
+
+.feedback-card {
+  background: #dac5c5;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+}
+
+.feedback-card h3 {
+  color: #934250;
+}
+
+.feedback-card span {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: #934250;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Skills Styles*/
+
+.skills {
+  padding: 5rem 10%;
+}
+
+.skills h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.skill {
+  margin-bottom: 2rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.skill-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.skill-info span {
+  color: #111010;
+  font-weight: bold;
+}
+
+.bar {
+  width: 100%;
+  height: 14px;
+  background: #d1d5db;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, #934250, #b45b6b);
+  border-radius: 50px;
+  transition: width 1s ease;
+}
+
+/* PROJECT FILTER BUTTONS */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-buttons button {
+  background: #934250;
+  border: none;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-buttons button:hover {
+  background: #5a1421;
+}
+
+/* PROJECT DETAILS BUTTON */
+.details-btn {
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #934250;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* TECH STACK BADGES */
+.tech-badge {
+  background: #934250;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  margin-right: 0x;
+  margin-left: 15px;
+}
+
+/* FEATURED BADGE */
+.featured-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #934250;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+/* LIVE UPDATES */
+.updates {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: #dac5c5;
+  border-radius: 12px;
+}
+
+.updates h3 {
+  color: #934250;
+  margin-bottom: 1rem;
+}
+
+.updates ul {
+  list-style: none;
+}
+
+.updates li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+}
+
+/* THEME TOGGLE BUTTON (floating) */
+.theme-btn-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
 }
 
 /*The light Mode*/
@@ -335,11 +600,16 @@ html {
 }
 
 /* Text */
-t .light h1,
-.light Header p {
+.light .header p {
   color: #934250;
 }
-.light h2,
+.light .header h2 {
+  color: #000;
+}
+.light .heading {
+  color: rgb(252, 252, 252);
+}
+
 .light h3,
 .light li,
 .light p,
@@ -370,15 +640,146 @@ t .light h1,
 .light .featured,
 .light .theme-btn,
 .light button {
-  color: white;
+  color: rgb(250, 246, 246);
 }
-/* The Dark Mode */
+/*Full Dark Mode*/
 
 .dark {
   background: #111827;
   color: white;
   min-height: 100vh;
-  transition: 0.3s ease;
+}
+
+/* Global text */
+.dark h1,
+.dark p,
+.dark li,
+.dark span {
+  color: white;
+}
+.dark h3,
+.dark h2 {
+  color: #934252;
+}
+
+/* Header */
+.dark .header h1 {
+  color: white;
+}
+
+.dark .header p {
+  color: #d1d5db;
+}
+
+/* Profile */
+.dark .profile p {
+  color: #d1d5db;
+}
+
+/* About */
+.dark .about p {
+  color: #d1d5db;
+}
+
+.dark .project-card p {
+  color: #d1d5db;
+}
+
+/* Skills */
+.dark .skills h2 {
+  color: #934252;
+}
+
+.dark .skill-info h3,
+.dark .skill-info span {
+  color: white;
+}
+
+.dark .bar {
+  background: #374151;
+}
+
+/* Contact */
+.dark .contact {
+  background: #1f2937;
+}
+
+.dark .contact h2 {
+  color: #934252;
+}
+
+.dark .contact input,
+.dark .contact textarea {
+  color: white;
+  border: 1px solid #4b5563;
+}
+
+.dark .contact input::placeholder,
+.dark .contact textarea::placeholder {
+  color: #d1d5db;
+}
+
+/* Preview */
+
+.dark .preview h3 {
+  color: rgb(0, 0, 0);
+}
+
+.dark .preview p {
+  color: #934250;
+}
+
+/* Feedback */
+.dark .feedback-card {
+  background: #1f2937;
+}
+
+.dark .feedback-card p {
+  color: #fdfbfb;
+}
+
+.dark .feedback-card h3 {
+  color: rgb(247, 244, 244);
+}
+
+/* Updates */
+.dark .updates {
+  background: #1f2937;
+}
+
+.dark .updates h3 {
+  color: white;
+}
+
+.dark .updates li {
+  color: #d1d5db;
+  border-bottom: 1px solid #374151;
+}
+
+/* Footer */
+.dark .footer {
+  background: #000;
+}
+
+.dark .footer p {
+  color: white;
+}
+
+.dark .socials a {
+  color: #934250;
+}
+
+/* Navbar */
+.dark .navbar {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.dark .nav-links a,
+.dark .badge,
+.dark .featured,
+.dark .theme-btn,
+.dark button {
+  color: rgb(2, 2, 2);
 }
 
 /* The Theme Button */

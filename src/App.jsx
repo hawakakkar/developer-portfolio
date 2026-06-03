@@ -1,9 +1,13 @@
 import { useState } from "react";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
-import About from "./components/About";
 import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import ContactForm from "./components/ContactForm";
+import FeedbackWall from "./components/FeedbackWall";
+import ThemeToggle from "./components/ThemeToggle";
 import Footer from "./components/Footer";
 
 import "./styles/App.css";
@@ -16,9 +20,7 @@ function App() {
       <Navbar />
 
       <div className="theme-btn-container">
-        <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
-        </button>
+        <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
 
       <Header message="Frontend Web Developer focused on modern design, performance, and user experience." />
@@ -30,7 +32,9 @@ function App() {
       />
 
       <About />
-
+      <Skills />
+      <ContactForm />
+      <FeedbackWall />
       <Projects />
 
       <Footer />

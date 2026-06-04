@@ -34,6 +34,7 @@ function Projects() {
         <button onClick={() => setFilter("JavaScript")}>JavaScript</button>
 
         <button onClick={() => setFilter("CSS")}>CSS</button>
+        <button onClick={() => setFilter("Python")}>Python</button>
       </div>
 
       {filteredProjects.length === 0 ? (

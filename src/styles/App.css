@@ -366,7 +366,16 @@ html {
 .contact button:hover {
   background: #5a1421;
 }
-
+/*unsent massage*/
+.light .saved-hint {
+  background: white;
+  color: #934250;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
 /* ERROR TEXT */
 .error {
   color: #ff4d4d;

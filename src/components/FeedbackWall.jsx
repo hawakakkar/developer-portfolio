@@ -30,7 +30,6 @@ function FeedbackWall() {
 
   return (
     <section className="feedback-wall">
-      return(
       <section id="feedback">
         <h2>Visitor Feedback</h2>
       </section>
@@ -39,7 +38,7 @@ function FeedbackWall() {
 
         <button onClick={() => setSortOrder("low")}>Lowest Rating</button>
       </div>
-      )
+
       {sortedFeedbacks.map((feedback) => (
         <div key={feedback.id} className="feedback-card">
           <h3>{feedback.name}</h3>

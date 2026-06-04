@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 function ContactForm() {
-  // ✅ Load saved data BEFORE state initialization (FIX)
   const saved = JSON.parse(localStorage.getItem("contactForm")) || {};
 
   const [name, setName] = useState(saved.name || "");
@@ -12,15 +11,24 @@ function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [emailError, setEmailError] = useState("");
 
-  // ✅ Auto-save to localStorage
+  // NEW STATE FOR UNSENT MESSAGE HINT
+  const [hasSavedData, setHasSavedData] = useState(
+    saved.name || saved.email || saved.message,
+  );
+
+  // Auto-save to localStorage
   useEffect(() => {
     localStorage.setItem(
       "contactForm",
       JSON.stringify({ name, email, message }),
     );
+
+    if (name || email || message) {
+      setHasSavedData(true);
+    }
   }, [name, email, message]);
 
-  // ✅ Debounced email validation (400ms)
+  // Debounced Email Validation
   useEffect(() => {
     const timer = setTimeout(() => {
       if (email && !/\S+@\S+\.\S+/.test(email)) {
@@ -33,7 +41,6 @@ function ContactForm() {
     return () => clearTimeout(timer);
   }, [email]);
 
-  // ✅ Submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -48,12 +55,12 @@ function ContactForm() {
     if (Object.keys(newErrors).length === 0) {
       setSuccess(true);
 
-      // clear form
       setName("");
       setEmail("");
       setMessage("");
 
       localStorage.removeItem("contactForm");
+      setHasSavedData(false);
 
       setTimeout(() => setSuccess(false), 3000);
     }
@@ -92,22 +99,27 @@ function ContactForm() {
         <button type="submit">Send Message</button>
       </form>
 
-      {/* ✅ Success message */}
       {success && <div className="success">Message sent successfully!</div>}
 
-      {/* ✅ Live preview */}
       <div className="preview">
         <h3>Live Preview</h3>
         <p>
           <b>Name:</b> {name}
         </p>
+
         <p>
           <b>Email:</b> {email}
         </p>
+
         <p>
           <b>Message:</b> {message}
         </p>
       </div>
+
+      {/* UNSENT MESSAGE HINT */}
+      {hasSavedData && !success && (
+        <p className="saved-hint">You have unsent message data saved!</p>
+      )}
     </section>
   );
 }

@@ -38,7 +38,7 @@ function Projects() {
       </div>
 
       {filteredProjects.length === 0 ? (
-        <p>No projects found.</p>
+        <p>No projects found</p>
       ) : (
         <div className="project-grid">
           {filteredProjects.map((project) => (

@@ -11,24 +11,15 @@ function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [emailError, setEmailError] = useState("");
 
-  // NEW STATE FOR UNSENT MESSAGE HINT
-  const [hasSavedData, setHasSavedData] = useState(
-    saved.name || saved.email || saved.message,
-  );
-
   // Auto-save to localStorage
   useEffect(() => {
     localStorage.setItem(
       "contactForm",
       JSON.stringify({ name, email, message }),
     );
-
-    if (name || email || message) {
-      setHasSavedData(true);
-    }
   }, [name, email, message]);
 
-  // Debounced Email Validation
+  // Debounced email validation
   useEffect(() => {
     const timer = setTimeout(() => {
       if (email && !/\S+@\S+\.\S+/.test(email)) {
@@ -40,6 +31,9 @@ function ContactForm() {
 
     return () => clearTimeout(timer);
   }, [email]);
+
+  const hasSavedData =
+    saved.name || saved.email || saved.message || name || email || message;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +54,6 @@ function ContactForm() {
       setMessage("");
 
       localStorage.removeItem("contactForm");
-      setHasSavedData(false);
 
       setTimeout(() => setSuccess(false), 3000);
     }
@@ -106,17 +99,14 @@ function ContactForm() {
         <p>
           <b>Name:</b> {name}
         </p>
-
         <p>
           <b>Email:</b> {email}
         </p>
-
         <p>
           <b>Message:</b> {message}
         </p>
       </div>
 
-      {/* UNSENT MESSAGE HINT */}
       {hasSavedData && !success && (
         <p className="saved-hint">You have unsent message data saved!</p>
       )}

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -12,17 +14,9 @@ import Footer from "./components/Footer";
 
 import "./styles/App.css";
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
+function Home() {
   return (
-    <div className={darkMode ? "dark" : "light"}>
-      <Navbar />
-
-      <div className="theme-btn-container">
-        <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div>
-
+    <>
       <Header message="Frontend Web Developer focused on modern design, performance, and user experience." />
 
       <Profile
@@ -31,14 +25,56 @@ function App() {
         bio="I’m a frontend web developer focused on creating clean, responsive, and modern websites that help businesses build trust and improve user experience."
       />
 
-      <About />
       <Skills />
-      <ContactForm />
       <FeedbackWall />
-      <Projects />
+    </>
+  );
+}
 
-      <Footer />
+function AboutPage() {
+  return <About />;
+}
+
+function ProjectsPage() {
+  return <Projects />;
+}
+
+function ContactPage() {
+  return <ContactForm />;
+}
+
+function NotFound() {
+  return (
+    <div style={{ padding: "120px 20px", textAlign: "center" }}>
+      <h1>404</h1>
+      <p>Page Not Found</p>
     </div>
+  );
+}
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  return (
+    <BrowserRouter>
+      <div className={darkMode ? "dark" : "light"}>
+        <Navbar />
+
+        <div className="theme-btn-container">
+          <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

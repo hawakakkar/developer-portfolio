@@ -1,5 +1,5 @@
 function TechBadge({ tech }) {
-  return <span className="badge">{tech}</span>;
+  return <span className="tech-badge">{tech}</span>;
 }
 
 export default TechBadge;

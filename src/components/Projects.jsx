@@ -6,6 +6,7 @@ function Projects() {
   const [filter, setFilter] = useState("All");
   const [updates, setUpdates] = useState([]);
 
+  // LIVE PROJECT UPDATES (POLLING)
   useEffect(() => {
     const interval = setInterval(() => {
       setUpdates((prev) => [
@@ -17,6 +18,7 @@ function Projects() {
     return () => clearInterval(interval);
   }, []);
 
+  // FILTER LOGIC
   const filteredProjects =
     filter === "All"
       ? projects
@@ -24,21 +26,49 @@ function Projects() {
 
   return (
     <section className="projects" id="projects">
-      <h2>Projects</h2>
+      <h2 className="section-title">Projects</h2>
 
+      {/* FILTER BUTTONS */}
       <div className="filter-buttons">
-        <button onClick={() => setFilter("All")}>All</button>
+        <button
+          className={filter === "All" ? "active" : ""}
+          onClick={() => setFilter("All")}
+        >
+          All
+        </button>
 
-        <button onClick={() => setFilter("React")}>React</button>
+        <button
+          className={filter === "React" ? "active" : ""}
+          onClick={() => setFilter("React")}
+        >
+          React
+        </button>
 
-        <button onClick={() => setFilter("JavaScript")}>JavaScript</button>
+        <button
+          className={filter === "JavaScript" ? "active" : ""}
+          onClick={() => setFilter("JavaScript")}
+        >
+          JavaScript
+        </button>
 
-        <button onClick={() => setFilter("CSS")}>CSS</button>
-        <button onClick={() => setFilter("Python")}>Python</button>
+        <button
+          className={filter === "CSS" ? "active" : ""}
+          onClick={() => setFilter("CSS")}
+        >
+          CSS
+        </button>
+
+        <button
+          className={filter === "Python" ? "active" : ""}
+          onClick={() => setFilter("Python")}
+        >
+          Python
+        </button>
       </div>
 
+      {/* PROJECT GRID */}
       {filteredProjects.length === 0 ? (
-        <p>No projects found</p>
+        <p className="empty-state">No projects found</p>
       ) : (
         <div className="project-grid">
           {filteredProjects.map((project) => (
@@ -47,6 +77,7 @@ function Projects() {
         </div>
       )}
 
+      {/* LIVE UPDATES SECTION */}
       <div className="updates">
         <h3>Live Project Updates</h3>
 

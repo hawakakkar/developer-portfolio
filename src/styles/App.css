@@ -791,6 +791,11 @@ html {
   color: rgb(2, 2, 2);
 }
 
+.nav-links a.active {
+  color: #c96e35;
+  font-weight: bold;
+}
+
 /* The Theme Button */
 
 .theme-btn-container {
@@ -892,13 +897,7 @@ html {
   .project-grid {
     grid-template-columns: 1fr;
   }
-
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
-
 /* The small phones */
 
 @media (max-width: 480px) {
@@ -929,5 +928,78 @@ html {
     padding: 0.7rem 1rem;
 
     font-size: 0.9rem;
+  }
+}
+
+/* PROJECT DETAILS PAGE */
+
+.project-details-page {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.project-details-page h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.project-details-page .project-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.project-details-page p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.project-details-page a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background: #934250;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.project-details-page a:hover {
+  transform: scale(1.05);
+}
+
+/* DARK MODE SUPPORT */
+
+.dark .project-details-page {
+  background: #1e1e1e;
+}
+
+.dark .project-details-page h2,
+.dark .project-details-page p {
+  color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .project-details-page {
+    margin: 30px 15px;
+    padding: 25px;
+  }
+
+  .project-details-page h2 {
+    font-size: 24px;
+  }
+
+  .project-details-page p {
+    font-size: 16px;
   }
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TechBadge from "./TechBadge";
+import { Link } from "react-router-dom";
 
 function ProjectCard({ project }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -56,6 +57,10 @@ function ProjectCard({ project }) {
 
           {/* ACTION BUTTONS */}
           <div className="project-links">
+            <Link to={`/projects/${project.id}`} className="project-link">
+              More Info
+            </Link>
+
             {project.link && (
               <a
                 href={project.link}

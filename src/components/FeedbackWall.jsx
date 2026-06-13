@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FeedbackCard from "./FeedbackCard";
 
 function FeedbackWall() {
   const [sortOrder, setSortOrder] = useState("high");
@@ -6,19 +7,19 @@ function FeedbackWall() {
   const feedbacks = [
     {
       id: 1,
-      name: "John",
+      name: "Zayn",
       rating: 5,
       comment: "Excellent portfolio and great projects!",
     },
     {
       id: 2,
-      name: "Sara",
+      name: "Nida",
       rating: 4,
       comment: "Very professional design.",
     },
     {
       id: 3,
-      name: "Ali",
+      name: "Arash",
       rating: 5,
       comment: "Amazing React skills.",
     },
@@ -30,9 +31,8 @@ function FeedbackWall() {
 
   return (
     <section className="feedback-wall">
-      <section id="feedback">
-        <h2>Visitor Feedback</h2>
-      </section>
+      <h2>Visitor Feedback</h2>
+
       <div className="feedback-buttons">
         <button onClick={() => setSortOrder("high")}>Highest Rating</button>
 
@@ -40,15 +40,12 @@ function FeedbackWall() {
       </div>
 
       {sortedFeedbacks.map((feedback) => (
-        <div key={feedback.id} className="feedback-card">
-          <h3>{feedback.name}</h3>
-
-          <p>{"⭐".repeat(feedback.rating)}</p>
-
-          <p>{feedback.comment}</p>
-
-          {feedback.rating === 5 && <span>🌟 Featured Review</span>}
-        </div>
+        <FeedbackCard
+          key={feedback.id}
+          name={feedback.name}
+          rating={feedback.rating}
+          comment={feedback.comment}
+        />
       ))}
     </section>
   );

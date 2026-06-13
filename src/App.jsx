@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import About from "./components/About";
+
 import Navbar from "./components/Navbar";
+
 import Header from "./components/Header";
+
 import Profile from "./components/Profile";
+
 import Projects from "./components/Projects";
+
+import ProjectDetails from "./pages/ProjectDetails";
+
 import Skills from "./components/Skills";
+
 import ContactForm from "./components/ContactForm";
+
 import FeedbackWall from "./components/FeedbackWall";
+
 import ThemeToggle from "./components/ThemeToggle";
+
 import Footer from "./components/Footer";
 
 import "./styles/App.css";
@@ -19,13 +31,10 @@ function Home() {
     <>
       <Header message="Frontend Web Developer focused on modern design, performance, and user experience." />
 
-      <Profile
-        name="Bibi Hawa Abdul Shukoor"
-        title="Frontend Web Developer"
-        bio="I’m a frontend web developer focused on creating clean, responsive, and modern websites that help businesses build trust and improve user experience."
-      />
+      <Profile />
 
       <Skills />
+
       <FeedbackWall />
     </>
   );
@@ -47,13 +56,26 @@ function NotFound() {
   return (
     <div style={{ padding: "120px 20px", textAlign: "center" }}>
       <h1>404</h1>
+
       <p>Page Not Found</p>
     </div>
   );
 }
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  // ✅ FIXED DARK MODE (NO REFRESH ISSUE)
+
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+
+    return savedTheme ? savedTheme === "dark" : false;
+  });
+
+  // ✅ SAVE THEME ON CHANGE
+
+  useEffect(() => {
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
     <BrowserRouter>
@@ -66,9 +88,17 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/about" element={<AboutPage />} />
+
           <Route path="/projects" element={<ProjectsPage />} />
+
+          <Route path="/projects/:id" element={<ProjectDetails />} />
+
+          <Route path="/skills" element={<Skills />} />
+
           <Route path="/contact" element={<ContactPage />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
 
